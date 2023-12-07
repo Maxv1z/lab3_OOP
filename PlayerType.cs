@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace MyGame
 {
+        public interface PlayerType
+    {
+        int ChangedRating(bool isWin);
+    } 
 
-    class Warrior : ChangedRating_Type
+    class Warrior : PlayerType
     {
         public int ChangedRating(bool winORlose)
         {
@@ -15,7 +19,7 @@ namespace MyGame
         }
     }
 
-    class Assassin : ChangedRating_Type
+    class Assassin : PlayerType
     {
         public int ChangedRating(bool winORlose)
         {
@@ -23,7 +27,7 @@ namespace MyGame
         }
     }
 
-    class HollowKnight : ChangedRating_Type
+    class HollowKnight : PlayerType
     {
         private int WinsInRow = 0;
 

@@ -12,9 +12,9 @@ namespace MyGame
         public int CurrentRating { get; private set; }
         public int GamesCount { get; private set; }
         private List<GameResult> gameHistory;
-        private ChangedRating_Type changeRating;
+        private PlayerType changeRating;
 
-        public GameAccount(string username, int UserRating, ChangedRating_Type type)
+        public GameAccount(string username, int UserRating, PlayerType type)
         {
             UserName = username;
             if (UserRating < 1)

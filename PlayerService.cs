@@ -4,7 +4,7 @@ namespace MyGame
     // Інтерфейс сервісу для гравців
     public interface PlayerInterfaceService
     {
-        void CreatePlayer(string playerName, int initialRating);
+        void CreatePlayer(string playerName, int initialRating, PlayerType playerType);
         List<Player> GetPlayers();
         Player GetPlayerById(int playerId);
     }
@@ -19,9 +19,9 @@ namespace MyGame
             this.playerRepository = playerRepository;
         }
 
-        public void CreatePlayer(string playerName, int initialRating)
+        public void CreatePlayer(string playerName, int initialRating, PlayerType playerType)
         {
-            var player = new Player { PlayerName = playerName, CurrentRating = initialRating };
+            var player = new Player { PlayerName = playerName, CurrentRating = initialRating, changeRating = playerType };
             playerRepository.CreatePlayer(player);
         }
 
@@ -34,6 +34,11 @@ namespace MyGame
         {
             return playerRepository.ReadPlayerById(playerId);
         }
+
+       // public void CreatePlayer(string playerName, int initialRating, PlayerType playerType)
+       // {
+       //     throw new NotImplementedException();
+        //}
     }
 
 

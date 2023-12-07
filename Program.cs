@@ -4,10 +4,7 @@ using System.Collections.Generic;
 
 namespace MyGame
 {
-    interface ChangedRating_Type
-    {
-        int ChangedRating(bool isWin);
-    } 
+
 
     class Program
     {
@@ -19,22 +16,27 @@ namespace MyGame
             var playerService = new PlayerService(playerRepository);
             var gameService = new GameService(gameRepository);
 
-            playerService.CreatePlayer("Alice", 500);
-            playerService.CreatePlayer("Bob", 600);
-            playerService.CreatePlayer("Charlie", 700);
+            playerService.CreatePlayer("Alice", 500, new Warrior());
+            playerService.CreatePlayer("Bob", 600, new Assassin());
+            playerService.CreatePlayer("Charlie", 700, new HollowKnight());
 
             Console.WriteLine("Players:");
             foreach (var player in playerService.GetPlayers())
             {
                 Console.WriteLine($"{player.PlayerId}. {player.PlayerName} - {player.CurrentRating}");
             }
-            gameService.PlayGame(playerService.GetPlayerById(1), GameFactory.CreateStandardGame(), "opponent", true);
+            gameService.PlayGame(playerService.GetPlayerById(1), GameFactory.CreateStandardGame(), "Martiii", true);
             gameService.PlayGame(playerService.GetPlayerById(1), GameFactory.CreateSinglePlayerGame(), "Bot", true);
             gameService.PlayGame(playerService.GetPlayerById(1), GameFactory.CreateSinglePlayerGame(), "Bot", false);
             gameService.PlayGame(playerService.GetPlayerById(2), GameFactory.CreateTrainingGame(), "Pyk", true);
             gameService.PlayGame(playerService.GetPlayerById(2), GameFactory.CreateTrainingGame(), "Pipi", false);
-            gameService.PlayGame(playerService.GetPlayerById(3), GameFactory.CreateStandardGame(), "JEB", false);
-
+            gameService.PlayGame(playerService.GetPlayerById(2), GameFactory.CreateSinglePlayerGame(), "Bot", false);
+            gameService.PlayGame(playerService.GetPlayerById(2), GameFactory.CreateSinglePlayerGame(), "Bot", true);
+            gameService.PlayGame(playerService.GetPlayerById(3), GameFactory.CreateStandardGame(), "JEB", true);
+            gameService.PlayGame(playerService.GetPlayerById(3), GameFactory.CreateStandardGame(), "BOB", true);
+            gameService.PlayGame(playerService.GetPlayerById(3), GameFactory.CreateStandardGame(), "abobus", true);
+            gameService.PlayGame(playerService.GetPlayerById(3), GameFactory.CreateStandardGame(), "Pypy", false);
+            gameService.PlayGame(playerService.GetPlayerById(3), GameFactory.CreateStandardGame(), "Frog", true);
 
             var alice = playerService.GetPlayerById(1);
             Console.WriteLine($"\nGame history for {alice.PlayerName}:");

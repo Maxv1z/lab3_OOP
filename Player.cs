@@ -6,6 +6,7 @@ namespace MyGame
         public int PlayerId { get; set; }
         public string PlayerName { get; set; }
         public int CurrentRating { get; set; }
+        public PlayerType changeRating;
         public List<GameData> Games { get; set; } = new List<GameData>();
     }
 }

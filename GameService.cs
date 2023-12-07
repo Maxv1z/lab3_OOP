@@ -20,14 +20,20 @@ namespace MyGame
 
         public void PlayGame(Player player, Game game, string OpponentName, bool result)
         {
+            
             int gameRating = game.CountRating(result);
+            int TypePlayer_Rating = 0;
+            if (gameRating != 0) 
+            {
+                TypePlayer_Rating = player.changeRating.ChangedRating(result);
+            } 
 
             if (result != true && result != false)
             {
                 throw new ArgumentException("Result must be 'Win' or 'Lose'.");
             }
 
-            player.CurrentRating += gameRating;
+            player.CurrentRating += gameRating + TypePlayer_Rating;
 
             if (player.CurrentRating < 0)
             {
