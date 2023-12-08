@@ -1,5 +1,4 @@
 
-
 namespace MyGame
 {
     public class DbContext

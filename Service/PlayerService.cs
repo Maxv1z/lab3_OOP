@@ -35,10 +35,6 @@ namespace MyGame
             return playerRepository.ReadPlayerById(playerId);
         }
 
-       // public void CreatePlayer(string playerName, int initialRating, PlayerType playerType)
-       // {
-       //     throw new NotImplementedException();
-        //}
     }
 
 

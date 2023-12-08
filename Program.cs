@@ -20,6 +20,7 @@ namespace MyGame
             playerService.CreatePlayer("Bob", 600, new Assassin());
             playerService.CreatePlayer("Charlie", 700, new HollowKnight());
 
+
             Console.WriteLine("Players:");
             foreach (var player in playerService.GetPlayers())
             {
